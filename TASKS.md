@@ -14,19 +14,19 @@ Each task requires a verification step before it is ticked.
 - [x] P1-T3: curation.ts + npm run check:data assertions (passes). — 2026-07-22
 
 ## Phase 2 — Page template
-- [ ] P2-T1: /compare/[slug]/page.tsx + generateStaticParams + notFound.
-- [ ] P2-T2: Full page layout (breadcrumb → H1 → verdict → table → charts → prose → FAQ → funnel → related → footer).
-- [ ] P2-T3: Component extraction (MetricTable, CompareBars, FaqAccordion, FormulaCard, RelatedLinks, Breadcrumbs).
+- [x] P2-T1: /compare/[slug]/page.tsx + generateStaticParams + notFound. — 2026-07-22
+- [x] P2-T2: Full page layout (breadcrumb → H1 → verdict → table → charts → prose → FAQ → funnel → related → footer). — 2026-07-22
+- [x] P2-T3: Component extraction (MetricTable, CompareBars, FaqAccordion, FormulaCard, RelatedLinks, Breadcrumbs). — 2026-07-22
 
 ## Phase 3 — SEO infrastructure
-- [ ] P3-T1: generateMetadata per pair (title/desc/canonical).
+- [x] P3-T1: generateMetadata per pair (title/desc/canonical). Verified in built HTML. — 2026-07-22
 - [ ] P3-T2: Canonical normalization middleware (301 msft-vs-aapl → aapl-vs-msft).
-- [ ] P3-T3: Noindex logic via shouldIndex().
-- [ ] P3-T4: JSON-LD @graph (BreadcrumbList, FAQPage, WebPage + Corporation).
+- [x] P3-T3: Noindex logic via shouldIndex(). Verified index vs noindex meta in HTML. — 2026-07-22
+- [x] P3-T4: JSON-LD @graph (BreadcrumbList, FAQPage, WebPage + Corporation). Verified in HTML. — 2026-07-22
 - [ ] P3-T5: app/sitemap.ts (only indexable pairs).
 - [ ] P3-T6: app/robots.ts.
-- [ ] P3-T7: Dynamic OG images + twitter:card.
-- [ ] P3-T8: Semantic HTML audit pass.
+- [ ] P3-T7: Dynamic OG images + twitter:card (twitter:card done; OG image route pending).
+- [x] P3-T8: Semantic HTML audit pass (one H1, th scope, main/nav/section, details/summary). — 2026-07-22
 
 ## Phase 4 — Hub, homepage, internal linking
 - [ ] P4-T1: /compare hub page.
