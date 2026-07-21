@@ -28,3 +28,8 @@ Running log of non-obvious engineering decisions. Each entry: **Decision** · Al
 - **Decision:** Seed 40 tickers, not the "26" stated in BUILD_PLAN §3.1.
 - **Alternatives:** Force the pair list down to 26 tickers.
 - **Why:** The 21 indexable pairs in §3.2 reference **38 unique tickers** by enumeration (AAPL, MSFT, NVDA, AMD, GOOGL, META, AMZN, WMT, KO, PEP, V, MA, XOM, CVX, JPM, BAC, TSLA, F, JNJ, PFE, DIS, NFLX, INTC, COST, MCD, SBUX, HD, LOW, UNH, CVS, BA, LMT, T, VZ, NKE, LULU, PG, UL), plus 2 for the noindex thin pair = 40. The concrete pair enumeration is the authoritative spec; "26" is a stale count. Building to the pair list is the non-silent correction.
+
+### D6 — Canonical redirect in `proxy.ts`, not `middleware.ts`
+- **Decision:** Implement the 301 canonical normalization in `src/proxy.ts`.
+- **Alternatives:** Keep `middleware.ts` (the name the plan uses).
+- **Why:** Next.js 16 renamed the `middleware.ts` file convention to `proxy.ts`; keeping the old name emits a deprecation warning and the Definition of Done requires a clean build. It is the same edge mechanism and the same logic — only the filename/export name changed. README maps "canonicals → proxy.ts (formerly middleware.ts)".

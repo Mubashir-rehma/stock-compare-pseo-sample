@@ -20,12 +20,12 @@ Each task requires a verification step before it is ticked.
 
 ## Phase 3 — SEO infrastructure
 - [x] P3-T1: generateMetadata per pair (title/desc/canonical). Verified in built HTML. — 2026-07-22
-- [ ] P3-T2: Canonical normalization middleware (301 msft-vs-aapl → aapl-vs-msft).
+- [x] P3-T2: Canonical normalization in proxy.ts (see D6). Verified 301 for reversed + uppercase slugs. — 2026-07-22
 - [x] P3-T3: Noindex logic via shouldIndex(). Verified index vs noindex meta in HTML. — 2026-07-22
 - [x] P3-T4: JSON-LD @graph (BreadcrumbList, FAQPage, WebPage + Corporation). Verified in HTML. — 2026-07-22
-- [ ] P3-T5: app/sitemap.ts (only indexable pairs).
-- [ ] P3-T6: app/robots.ts.
-- [ ] P3-T7: Dynamic OG images + twitter:card (twitter:card done; OG image route pending).
+- [x] P3-T5: app/sitemap.ts (only indexable pairs). Verified 23 URLs, thin pair excluded. — 2026-07-22
+- [x] P3-T6: app/robots.ts. Verified served with sitemap ref. — 2026-07-22
+- [x] P3-T7: Dynamic OG images (22 prerendered, 200 image/png) + twitter:card. — 2026-07-22
 - [x] P3-T8: Semantic HTML audit pass (one H1, th scope, main/nav/section, details/summary). — 2026-07-22
 
 ## Phase 4 — Hub, homepage, internal linking

@@ -12,6 +12,8 @@ export const SITE = {
   /** Every page is labelled with this so no figure reads as real-time. */
   asOf: "Q2 2026",
   asOfLong: "as of Q2 2026",
+  /** Fixed lastModified for sitemap — deterministic, matches the "as of" period. */
+  lastModified: "2026-06-30",
   wisesheetsUrl: "https://wisesheets.io",
   repoUrl: "https://github.com/mubashir-rehman/stock-compare-pseo-sample",
 } as const;
