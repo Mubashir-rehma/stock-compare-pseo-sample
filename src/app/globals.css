@@ -1,51 +1,58 @@
 @import "tailwindcss";
 
 /*
-  Design tokens — a restrained, finance-appropriate system.
-  Ink/paper neutrals + a single trustworthy blue accent, plus a semantic
-  "win" color that never relies on hue alone (always paired with a text
-  marker in the UI for accessibility).
+  Design tokens — matched to the Wisesheets brand (wisesheets.io):
+  signature green + near-black ink on white, Roboto type.
+  The brand green comes in two roles:
+   - --brand-bright (#1FB723): the literal Wisesheets green, used ONLY for
+     decorative/graphic fills (OG images, chart bars) where contrast isn't text.
+   - --brand (#0f7a16, deeper): interactive text/links/buttons, chosen so white
+     text clears 4.5:1 and green-on-white text clears 4.5:1 (a11y stays 100).
+  The "win"/leader marker never relies on hue alone — always paired with a text
+  marker and a ▲ glyph in the UI.
 */
 :root {
   --paper: #ffffff;
-  --paper-2: #f7f8fa;
-  --ink: #0f172a; /* slate-900 */
-  --ink-2: #334155; /* slate-700 */
-  --ink-3: #5b6b7f; /* ~slate-500, contrast-tuned */
-  --line: #e2e8f0; /* slate-200 */
-  --line-2: #cbd5e1; /* slate-300 */
-  --brand: #1d4ed8; /* blue-700 */
-  --brand-ink: #1e40af;
-  --brand-wash: #eff6ff; /* blue-50 */
+  --paper-2: #f6f8f6; /* faint green-neutral off-white */
+  --ink: #111827; /* near-black, Wisesheets-like */
+  --ink-2: #374151; /* gray-700 */
+  --ink-3: #5b6472; /* gray-500, contrast-tuned */
+  --line: #e5e7eb; /* gray-200 */
+  --line-2: #d1d5db; /* gray-300 */
+  --brand: #0f7a16; /* deep Wisesheets green — text/links (5.3:1 on white) */
+  --brand-ink: #0b5e11; /* hover / darker */
+  --brand-wash: #e9f8ea; /* light green tint */
+  --brand-bright: #1fb723; /* the literal Wisesheets green (graphics only) */
   /* Solid button fill — theme-independent so white text always clears 4.5:1
-     (white on #1d4ed8 = 5.17:1) in both light and dark. */
-  --brand-btn: #1d4ed8;
-  --brand-btn-hover: #1e40af;
-  --win: #047857; /* emerald-700 */
-  --win-wash: #ecfdf5;
+     (white on #0f7a16 = 5.3:1) in both light and dark. */
+  --brand-btn: #0f7a16;
+  --brand-btn-hover: #0b5e11;
+  --win: #0f7a16; /* leader marker (green, harmonized with brand) */
+  --win-wash: #e9f8ea;
   --code-bg: #0f172a;
   --code-ink: #e2e8f0;
-  /* System font stacks — no external CDN, no build-time network fetch. */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  --font-sans: var(--font-roboto), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji",
+    sans-serif;
   --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas,
     "Liberation Mono", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #0b1120;
-    --paper-2: #0f172a;
+    --paper: #0b0f14;
+    --paper-2: #12181f;
     --ink: #f1f5f9;
     --ink-2: #cbd5e1;
     --ink-3: #9fb0c3;
-    --line: #1e293b;
-    --line-2: #334155;
-    --brand: #60a5fa;
-    --brand-ink: #93c5fd;
-    --brand-wash: #0f2038;
-    --win: #34d399;
-    --win-wash: #052e26;
+    --line: #1e2630;
+    --line-2: #333d4a;
+    --brand: #3ecf47; /* bright green — links on dark */
+    --brand-ink: #6ee07a;
+    --brand-wash: #0e2a14;
+    --brand-bright: #1fb723;
+    --win: #3ecf47;
+    --win-wash: #0e2a14;
     --code-bg: #020617;
     --code-ink: #e2e8f0;
   }
@@ -62,6 +69,7 @@
   --color-brand: var(--brand);
   --color-brand-ink: var(--brand-ink);
   --color-brand-wash: var(--brand-wash);
+  --color-brand-bright: var(--brand-bright);
   --color-brand-btn: var(--brand-btn);
   --color-brand-btn-hover: var(--brand-btn-hover);
   --color-win: var(--win);

@@ -12,9 +12,9 @@ export function generateStaticParams() {
   return PAIRS.map((p) => ({ slug: p.slug }));
 }
 
-const BRAND = "#1d4ed8";
-const INK = "#0b1120";
-const PAPER = "#f7f8fa";
+const BRAND = "#1fb723"; // Wisesheets signature green
+const INK = "#0b0f14";
+const PAPER = "#f6f8f6";
 
 function Card({
   symbol,

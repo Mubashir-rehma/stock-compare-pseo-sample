@@ -63,14 +63,14 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/compare"
-              className="rounded-lg bg-brand-btn px-5 py-2.5 font-semibold text-white hover:bg-brand-btn-hover"
+              className="rounded-full bg-brand-btn px-6 py-2.5 font-semibold text-white hover:bg-brand-btn-hover"
             >
               Browse the comparisons
             </Link>
             <a
               href={SITE.repoUrl}
               rel="noopener"
-              className="rounded-lg border border-line px-5 py-2.5 font-semibold text-ink-2 hover:border-brand hover:text-brand"
+              className="rounded-full border border-line px-6 py-2.5 font-semibold text-ink-2 hover:border-brand hover:text-brand"
             >
               Read the README on GitHub
             </a>

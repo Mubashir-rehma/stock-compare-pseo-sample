@@ -6,8 +6,8 @@ export const alt = "Stock Compare — side-by-side stock comparisons";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const BRAND = "#1d4ed8";
-const INK = "#0b1120";
+const BRAND = "#1fb723"; // Wisesheets signature green
+const INK = "#0b0f14";
 
 /**
  * Default OG image for the site root and the hub (comparison pages override this

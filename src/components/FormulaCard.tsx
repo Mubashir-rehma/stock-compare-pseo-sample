@@ -40,7 +40,7 @@ export function FormulaCard({ a, b }: { a: Ticker; b: Ticker }) {
       </div>
       <a
         href={SITE.wisesheetsUrl}
-        className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-brand-btn px-4 py-2 text-sm font-semibold text-white hover:bg-brand-btn-hover"
+        className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-brand-btn px-5 py-2 text-sm font-semibold text-white hover:bg-brand-btn-hover"
         rel="noopener"
       >
         Get Wisesheets

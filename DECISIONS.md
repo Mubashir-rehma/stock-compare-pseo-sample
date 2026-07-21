@@ -38,3 +38,10 @@ Running log of non-obvious engineering decisions. Each entry: **Decision** · Al
 - **Decision:** Accept the framework-baseline first-load JS (~183 kB gzipped) rather than chase the plan's "<90 kB" figure, while keeping app-authored client JS at exactly 0 kB (zero client components).
 - **Alternatives:** Force a webpack build, strip to an MPA with no framework runtime.
 - **Why:** The "<90 kB" number predates React 19 + the App Router, whose shared runtime alone exceeds it. The controllable lever — shipping no client component code — is fully exercised (every component is a server component; the FAQ uses native `<details>`). The binding Definition-of-Done metric is Lighthouse Performance ≥95, which is met at 98–99 with this baseline because the JS is static, cacheable, and non-render-blocking (CLS 0, TBT ~80 ms). Optimising framework bytes further would trade correctness/stability for a metric the DoD does not actually gate on.
+
+### D8 — Wisesheets brand theme (green + Roboto), supersedes D4's font choice
+- **Decision:** Re-skin the site to the Wisesheets brand: signature green, near-black-on-white neutrals, Roboto type, pill-shaped CTAs.
+- **Alternatives:** Keep the neutral blue/system-font theme.
+- **Why:** Requested — the sample should look like it belongs to Wisesheets. Extracted from wisesheets.io: brand green `#1FB723`, white bg, black/gray text, Roboto, `border-radius: 50px` buttons.
+- **Two-role green (keeps a11y at 100):** `#1FB723` is too light for white text (~2.5:1) or as text on white (~2.2:1), so it is used ONLY for decorative graphic fills (OG images, chart bars) via `--brand-bright`. Interactive text, links, and buttons use a deeper `--brand #0f7a16` (white-on-it 5.3:1; it-on-white 5.3:1). Verified: Lighthouse a11y = 100 after the change.
+- **Font (revisits D4):** now that the app deploys on Vercel (reliable build-time network), Roboto is loaded via `next/font/google`, which **self-hosts** the file — so the runtime still has no external font CDN (D4's real constraint) and `display: swap` keeps CLS at 0. Used the **variable** Roboto so semibold/extrabold/black weights all resolve from one file. Perf remains ≥95 (95–96).
