@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
+/*
+  Design tokens — a restrained, finance-appropriate system.
+  Ink/paper neutrals + a single trustworthy blue accent, plus a semantic
+  "win" color that never relies on hue alone (always paired with a text
+  marker in the UI for accessibility).
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --paper: #ffffff;
+  --paper-2: #f7f8fa;
+  --ink: #0f172a; /* slate-900 */
+  --ink-2: #334155; /* slate-700 */
+  --ink-3: #5b6b7f; /* ~slate-500, contrast-tuned */
+  --line: #e2e8f0; /* slate-200 */
+  --line-2: #cbd5e1; /* slate-300 */
+  --brand: #1d4ed8; /* blue-700 */
+  --brand-ink: #1e40af;
+  --brand-wash: #eff6ff; /* blue-50 */
+  --win: #047857; /* emerald-700 */
+  --win-wash: #ecfdf5;
+  --code-bg: #0f172a;
+  --code-ink: #e2e8f0;
+  /* System font stacks — no external CDN, no build-time network fetch. */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --paper: #0b1120;
+    --paper-2: #0f172a;
+    --ink: #f1f5f9;
+    --ink-2: #cbd5e1;
+    --ink-3: #9fb0c3;
+    --line: #1e293b;
+    --line-2: #334155;
+    --brand: #60a5fa;
+    --brand-ink: #93c5fd;
+    --brand-wash: #0f2038;
+    --win: #34d399;
+    --win-wash: #052e26;
+    --code-bg: #020617;
+    --code-ink: #e2e8f0;
   }
 }
 
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-wash: var(--brand-wash);
+  --color-win: var(--win);
+  --color-win-wash: var(--win-wash);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Visible focus for keyboard users everywhere. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Respect reduced-motion for the one place we animate (accordion marker). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 }
