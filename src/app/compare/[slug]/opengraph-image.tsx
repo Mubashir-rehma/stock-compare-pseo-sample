@@ -140,8 +140,7 @@ export default async function OgImage({
         </div>
 
         <div style={{ display: "flex", color: "#94a3b8", fontSize: 24 }}>
-          {a.symbol} vs {b.symbol} · P/E, margins, growth &amp; dividends · Illustrative data,
-          as of Q2 2026
+          {`${a.symbol} vs ${b.symbol} · P/E, margins, growth & dividends · Illustrative data, as of Q2 2026`}
         </div>
       </div>
     ),
