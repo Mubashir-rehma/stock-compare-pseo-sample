@@ -1,15 +1,42 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FEATURED_SLUGS, INDEXABLE_PAIRS } from "@/data/pairs";
-import { absoluteUrl, SITE } from "@/lib/site";
+import { absoluteUrl, BASE_URL, SITE } from "@/lib/site";
 import { SiteFooter } from "@/components/SiteFooter";
+import { JsonLd } from "@/lib/jsonld";
+
+const title = "Stock Compare — Programmatic SEO Sample for Wisesheets";
+const description =
+  "A programmatic-SEO work sample: a scalable stock-vs-stock comparison page system built for Wisesheets. Illustrative data, Q2 2026.";
 
 export const metadata: Metadata = {
-  title: "Stock Compare — A Programmatic SEO Work Sample for Wisesheets",
-  description:
-    "A programmatic-SEO work sample: a scalable stock-vs-stock comparison page system built for Wisesheets. Illustrative data, Q2 2026.",
+  title,
+  description,
   alternates: { canonical: absoluteUrl("/") },
   robots: { index: true, follow: true },
+  openGraph: {
+    title,
+    description,
+    url: absoluteUrl("/"),
+    type: "website",
+    siteName: "Stock Compare",
+  },
+  twitter: { card: "summary_large_image", title, description },
+};
+
+const homeGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${BASE_URL}/#website`,
+      url: `${BASE_URL}/`,
+      name: "Stock Compare",
+      description: SITE.tagline,
+      inLanguage: "en-US",
+    },
+    { "@type": "Person", name: SITE.author },
+  ],
 };
 
 const featured = FEATURED_SLUGS;
@@ -17,6 +44,7 @@ const featured = FEATURED_SLUGS;
 export default function Home() {
   return (
     <>
+      <JsonLd data={homeGraph} />
       <main className="flex-1">
         {/* Hero */}
         <section className="mx-auto max-w-4xl px-5 pt-16 pb-10">

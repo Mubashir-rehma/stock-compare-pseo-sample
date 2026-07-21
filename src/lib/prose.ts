@@ -27,10 +27,15 @@ function pick<T>(variants: T[], seed: number): T {
   return variants[seed % variants.length];
 }
 
-/** First word of a company name, for readable prose ("Apple", "Coca-Cola"). */
+/** Short, readable company name for prose ("Apple", "Coca-Cola", "JPMorgan Chase"). */
 function shortName(t: Ticker): string {
   return t.name
-    .replace(/,? (Inc\.?|Incorporated|Corporation|Corp\.?|Company|PLC|Co\.?|Group|Platforms|Motor)\b.*$/i, "")
+    .replace(/^The\s+/i, "") // "The Home Depot" -> "Home Depot"
+    .replace(
+      /,? (Inc\.?|Incorporated|Corporation|Corp\.?|Company|PLC|Co\.?|Group|Platforms|Motor)\b.*$/i,
+      "",
+    )
+    .replace(/\s*&\s*$/, "") // strip dangling "&" left by "& Co." removal
     .trim();
 }
 

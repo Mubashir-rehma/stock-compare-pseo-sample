@@ -14,14 +14,14 @@ export function SiteHeader() {
           </span>
           {SITE.name}
         </Link>
-        <nav aria-label="Primary" className="flex items-center gap-5 text-sm font-medium">
-          <Link href="/compare" className="text-ink-2 hover:text-brand">
+        <nav aria-label="Primary" className="flex items-center gap-2 text-sm font-medium sm:gap-4">
+          <Link href="/compare" className="rounded-md px-2 py-2 text-ink-2 hover:text-brand">
             Compare stocks
           </Link>
           <a
             href={SITE.wisesheetsUrl}
             rel="noopener"
-            className="text-ink-2 hover:text-brand"
+            className="rounded-md px-2 py-2 text-ink-2 hover:text-brand"
           >
             Wisesheets
           </a>

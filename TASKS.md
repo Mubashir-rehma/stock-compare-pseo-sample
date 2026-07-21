@@ -51,7 +51,7 @@ Each task requires a verification step before it is ticked.
 - [ ] P7-T4: Final commit + tag v1.0.0.
 
 ## QA
-- [ ] QA Round 1 (breadth, all lanes).
+- [x] QA Round 1 (breadth, all lanes). 5 findings fixed; qa-audit 0 open. — 2026-07-22
 - [ ] QA Round 2 (depth + adversarial).
 - [ ] QA Round 3 (live deploy + README read-through).
 
