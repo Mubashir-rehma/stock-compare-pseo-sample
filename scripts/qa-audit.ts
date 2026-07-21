@@ -175,7 +175,7 @@ for (const p of PAIRS) {
 
 // --- Uniqueness across pages ---
 for (const [t, pages] of titles) if (pages.length > 1) add("MEDIUM", pages.join(","), `duplicate <title>: "${t}"`);
-for (const [d, pages] of descs) if (pages.length > 1) add("MEDIUM", pages.join(","), `duplicate description on ${pages.length} pages`);
+for (const [, pages] of descs) if (pages.length > 1) add("MEDIUM", pages.join(","), `duplicate description on ${pages.length} pages`);
 
 // --- Report ---
 const bySev = (s: Sev) => findings.filter((f) => f.sev === s);

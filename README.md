@@ -140,5 +140,12 @@ npm run build       # production build (fully pre-rendered)
 ```
 
 **Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 ·
-`next/og` for OG images. Zero client components. Fully static-generated; the only
-server code is `proxy.ts` (canonical 301s) and the OG image route.
+`next/og` for OG images. Zero client components. Every page — including the OG
+images — is prerendered at build time; the only code that runs per-request is
+`proxy.ts`, which issues the canonical 301 redirects at the edge.
+
+> **Note on Next 16:** `create-next-app` scaffolds Next 16 (the plan says "14+").
+> Two naming changes vs. the plan: the canonical-redirect file is `proxy.ts`
+> (Next 16 renamed the `middleware.ts` convention), and the first-load JS reflects
+> the React 19 / App Router baseline. See `DECISIONS.md` (D1, D6, D7) for the full
+> reasoning. All behavior the plan specifies is implemented and verified.

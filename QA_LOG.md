@@ -74,5 +74,19 @@ Mobile-only pass: hub (8 sector groups, 21 links) and comparison pages — no pa
 
 Result: 0 open HIGH/MEDIUM findings.
 
-## Round 3 — live deploy
-(pending)
+## Round 3 — production reality (2026-07-22)
+
+Split into (a) README/repo read-through + final local verify — DONE here; and (b) live-URL
+checks on Vercel — to be run by the repo owner post-deploy (deploy is owner-credentialed;
+see Blockers in TASKS.md). Because the local server runs the true production build
+(`next start`), the (b) checks were already exercised locally in R1–R3 against that build;
+what remains is confirming they hold on the Vercel platform + the real domain.
+
+README-as-Guillermo read-through (findings fixed):
+- `[R3][README] LOW | README.md | claimed OG image route is runtime server code | it is prerendered (SSG); reworded: only per-request code is proxy.ts` ✅
+- `[R3][README] LOW | README.md | plan-vs-implementation naming (proxy vs middleware, Next 16, JS baseline) not surfaced | added a "Note on Next 16" pointing to DECISIONS D1/D6/D7` ✅
+- Verified: all 14 file paths cited in the requirement→file mapping table exist; every mapped claim is true in code; counts (21 indexable + 1 noindex, sitemap 23 URLs, ≥4 inbound) match reality; Lighthouse numbers match the table above.
+
+Final local verify (all green): `check:data` ✅ · `check:links` ✅ (min inbound 4) · `lint` clean (0 problems) · `build` clean (0 warnings) · `qa-audit` 0 findings across 24 pages.
+
+Pending (owner, post-deploy): live sitemap.xml/robots.txt, `/compare/msft-vs-aapl` 301 on the real domain, OG image over HTTP, Lighthouse on live URLs, `NEXT_PUBLIC_SITE_URL` set so canonicals/sitemap use the real domain. Checklist in README/handoff.
