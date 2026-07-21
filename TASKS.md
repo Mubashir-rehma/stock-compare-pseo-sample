@@ -46,8 +46,8 @@ Each task requires a verification step before it is ticked.
 
 ## Phase 7 — Deploy
 - [x] P7-T1: Clean next build, zero type errors, zero warnings, lint clean. — 2026-07-22
-- [~] P7-T2: Push to GitHub — OWNER-RUN (no gh CLI / needs owner account). Checklist provided.
-- [~] P7-T3: Deploy to Vercel + live verification — OWNER-RUN. Checklist provided.
+- [x] P7-T2: Pushed to GitHub (Mubashir-rehma/stock-compare-pseo-sample), main + v1.0.0 tag. — 2026-07-22
+- [~] P7-T3: Deploy to Vercel + live verification — OWNER-RUN (Vercel needs owner account). Checklist provided.
 - [x] P7-T4: Tag v1.0.0 locally (release candidate for owner to push with deploy). — 2026-07-22
 
 ## QA
