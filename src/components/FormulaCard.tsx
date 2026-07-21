@@ -32,7 +32,7 @@ export function FormulaCard({ a, b }: { a: Ticker; b: Ticker }) {
             {lines.map((l) => (
               <span key={l.formula} className="block whitespace-pre">
                 <span className="text-emerald-400">{l.formula}</span>
-                <span className="text-slate-500">{`  // ${l.note}`}</span>
+                <span className="text-slate-400">{`  // ${l.note}`}</span>
               </span>
             ))}
           </code>
@@ -40,7 +40,7 @@ export function FormulaCard({ a, b }: { a: Ticker; b: Ticker }) {
       </div>
       <a
         href={SITE.wisesheetsUrl}
-        className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-ink"
+        className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-brand-btn px-4 py-2 text-sm font-semibold text-white hover:bg-brand-btn-hover"
         rel="noopener"
       >
         Get Wisesheets

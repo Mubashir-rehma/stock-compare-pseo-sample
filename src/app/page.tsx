@@ -35,7 +35,7 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/compare"
-              className="rounded-lg bg-brand px-5 py-2.5 font-semibold text-white hover:bg-brand-ink"
+              className="rounded-lg bg-brand-btn px-5 py-2.5 font-semibold text-white hover:bg-brand-btn-hover"
             >
               Browse the comparisons
             </Link>

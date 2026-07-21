@@ -17,6 +17,10 @@
   --brand: #1d4ed8; /* blue-700 */
   --brand-ink: #1e40af;
   --brand-wash: #eff6ff; /* blue-50 */
+  /* Solid button fill — theme-independent so white text always clears 4.5:1
+     (white on #1d4ed8 = 5.17:1) in both light and dark. */
+  --brand-btn: #1d4ed8;
+  --brand-btn-hover: #1e40af;
   --win: #047857; /* emerald-700 */
   --win-wash: #ecfdf5;
   --code-bg: #0f172a;
@@ -58,6 +62,8 @@
   --color-brand: var(--brand);
   --color-brand-ink: var(--brand-ink);
   --color-brand-wash: var(--brand-wash);
+  --color-brand-btn: var(--brand-btn);
+  --color-brand-btn-hover: var(--brand-btn-hover);
   --color-win: var(--win);
   --color-win-wash: var(--win-wash);
   --font-sans: var(--font-sans);

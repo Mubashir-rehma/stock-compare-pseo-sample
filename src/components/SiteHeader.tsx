@@ -8,7 +8,7 @@ export function SiteHeader() {
         <Link href="/" className="flex items-center gap-2 font-bold text-ink">
           <span
             aria-hidden="true"
-            className="grid h-7 w-7 place-items-center rounded-md bg-brand text-sm font-black text-white"
+            className="grid h-7 w-7 place-items-center rounded-md bg-brand-btn text-sm font-black text-white"
           >
             vs
           </span>

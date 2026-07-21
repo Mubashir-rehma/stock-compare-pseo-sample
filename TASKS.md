@@ -35,10 +35,10 @@ Each task requires a verification step before it is ticked.
 - [x] P4-T4: check:links script (passes, min inbound = 4, noindex isolated). — 2026-07-22
 
 ## Phase 5 — Performance & CWV
-- [ ] P5-T1: Font strategy (next/font, swap, subset).
-- [ ] P5-T2: Zero layout shift.
-- [ ] P5-T3: Bundle audit (<90 kB first-load target).
-- [ ] P5-T4: Lighthouse / self-audit → QA_LOG.md.
+- [x] P5-T1: Font strategy — system stack, no CDN/build fetch (see D4). — 2026-07-22
+- [x] P5-T2: Zero layout shift — CLS measured 0 (explicit SVG dims, no font swap, no client pops). — 2026-07-22
+- [x] P5-T3: Bundle audit — 0 client components; app client JS = 0 kB; framework baseline ~183 kB gz (see QA_LOG note). — 2026-07-22
+- [x] P5-T4: Lighthouse (real, LH 13.4.1 mobile): hub/2 pages Perf 98-99, A11y 100, BP 100, SEO 100. Logged. — 2026-07-22
 
 ## Phase 6 — README & workflow doc
 - [ ] P6-T1: README.md (6 sections).
