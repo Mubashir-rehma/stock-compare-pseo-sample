@@ -41,8 +41,8 @@ Each task requires a verification step before it is ticked.
 - [x] P5-T4: Lighthouse (real, LH 13.4.1 mobile): hub/2 pages Perf 98-99, A11y 100, BP 100, SEO 100. Logged. — 2026-07-22
 
 ## Phase 6 — README & workflow doc
-- [ ] P6-T1: README.md (6 sections).
-- [ ] P6-T2: DECISIONS.md running log.
+- [x] P6-T1: README.md (6 sections + requirement→file mapping table + run instructions). — 2026-07-22
+- [x] P6-T2: DECISIONS.md running log (D1–D7, maintained across phases). — 2026-07-22
 
 ## Phase 7 — Deploy
 - [ ] P7-T1: Clean next build, zero type errors.
