@@ -15,7 +15,7 @@ export const SITE = {
   /** Fixed lastModified for sitemap — deterministic, matches the "as of" period. */
   lastModified: "2026-06-30",
   wisesheetsUrl: "https://wisesheets.io",
-  repoUrl: "https://github.com/mubashir-rehman/stock-compare-pseo-sample",
+  repoUrl: "https://github.com/Mubashir-rehma/stock-compare-pseo-sample",
 } as const;
 
 /** Absolute base URL, no trailing slash. */
