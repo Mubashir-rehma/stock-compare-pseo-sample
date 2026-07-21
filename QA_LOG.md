@@ -89,4 +89,22 @@ README-as-Guillermo read-through (findings fixed):
 
 Final local verify (all green): `check:data` ✅ · `check:links` ✅ (min inbound 4) · `lint` clean (0 problems) · `build` clean (0 warnings) · `qa-audit` 0 findings across 24 pages.
 
-Pending (owner, post-deploy): live sitemap.xml/robots.txt, `/compare/msft-vs-aapl` 301 on the real domain, OG image over HTTP, Lighthouse on live URLs, `NEXT_PUBLIC_SITE_URL` set so canonicals/sitemap use the real domain. Checklist in README/handoff.
+Live-URL verification (https://stock-compare-pseo-sample.vercel.app/) — ALL PASS:
+- `/compare/msft-vs-aapl` → 301 → `/compare/aapl-vs-msft` on the real domain ✅
+- `sitemap.xml` = 23 `<loc>`, `cvbf-vs-myrg` absent ✅
+- `robots.txt` allows all + correct sitemap/host ✅
+- noindex page serves `<meta name="robots" content="noindex, follow">` ✅
+- unknown slug → 404 ✅
+- OG images live: home `/opengraph-image`, hub `/compare/opengraph-image`, pair `/compare/<slug>/opengraph-image` all 200 image/png ✅
+- Home canonical = bare origin (trailingSlash:false) ✅
+- Live Lighthouse (mobile, LH 13.4.1):
+
+| Live page | Perf | A11y | BP | SEO |
+|-----------|------|------|----|-----|
+| `/` (home)            | 98 | 100 | 100 | 100 |
+| `/compare` (hub)      | 98 | 100 | 100 | 100 |
+| `/compare/aapl-vs-msft` | 99 | 100 | 100 | 100 |
+
+`NEXT_PUBLIC_SITE_URL` note: the live domain equals the built-in default, so canonicals/sitemap/OG URLs are already correct without setting the env var.
+
+Round 3 result: 0 open findings; Definition of Done met on the live deployment.

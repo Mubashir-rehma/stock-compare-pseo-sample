@@ -47,13 +47,16 @@ Each task requires a verification step before it is ticked.
 ## Phase 7 — Deploy
 - [x] P7-T1: Clean next build, zero type errors, zero warnings, lint clean. — 2026-07-22
 - [x] P7-T2: Pushed to GitHub (Mubashir-rehma/stock-compare-pseo-sample), main + v1.0.0 tag. — 2026-07-22
-- [~] P7-T3: Deploy to Vercel + live verification — OWNER-RUN (Vercel needs owner account). Checklist provided.
+- [x] P7-T3: Deployed to Vercel (stock-compare-pseo-sample.vercel.app). Live verified: 301s, sitemap, robots, noindex, OG images, Lighthouse 98-99/100/100/100. — 2026-07-22
 - [x] P7-T4: Tag v1.0.0 locally (release candidate for owner to push with deploy). — 2026-07-22
 
 ## QA
 - [x] QA Round 1 (breadth, all lanes). 5 findings fixed; qa-audit 0 open. — 2026-07-22
 - [x] QA Round 2 (depth + adversarial). Routing battery + all-page schema + mobile; 1 LOW accepted. — 2026-07-22
-- [~] QA Round 3: README read-through + final local verify DONE (2 README fixes); live-URL checks OWNER-RUN post-deploy.
+- [x] QA Round 3: README read-through + final local verify + LIVE-URL checks on Vercel — all pass, 0 open findings. — 2026-07-22
 
 ## Blockers
-- **P7-T2 / P7-T3 (deploy):** `gh` and `vercel` CLIs are not installed, and both require the user's GitHub/Vercel accounts + interactive auth. Push to public GitHub + Vercel deploy need explicit user go-ahead and credentials. Everything up to deploy is complete, verified against a local production build (`next start`). QA Round 3's live-URL checks depend on the deploy; the README read-through portion of Round 3 can be done locally.
+- ~~P7-T2 / P7-T3 (deploy)~~ RESOLVED 2026-07-22: owner supplied the GitHub repo; pushed main + v1.0.0. Owner connected Vercel; deploy is live at stock-compare-pseo-sample.vercel.app and live-verified. No open blockers.
+
+## Definition of Done — status
+All 6 criteria met: (1) live on Vercel with real seed data; (2) 21 indexable + 1 noindex + hub + home; (3) full SEO infra implemented & verified (view-source + live curl); (4) Lighthouse mobile hub+2 pages Perf 98-99 / SEO 100 / A11y 100 / BP 100; (5) README documents what/why/mapping/decisions/workflow/scaling; (6) 3 QA rounds complete, findings fixed and logged.

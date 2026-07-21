@@ -6,6 +6,8 @@ Engineer role at [Wisesheets](https://wisesheets.io). It is a self-contained
 Next.js app that demonstrates every SEO-engineering skill in the job post on a
 real page type, at real scale, with the judgment calls made explicit.
 
+**Live:** https://stock-compare-pseo-sample.vercel.app/ · **Source:** https://github.com/Mubashir-rehma/stock-compare-pseo-sample
+
 > **Honest framing:** this is a demo, not a Wisesheets property. All figures are
 > illustrative and labelled *as of Q2 2026*. In production these pages read live
 > data from Wisesheets' existing pipeline; here they run on static seed data so
