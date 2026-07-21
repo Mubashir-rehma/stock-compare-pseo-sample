@@ -9,9 +9,9 @@ Each task requires a verification step before it is ticked.
 - [x] P0-T3: /src/data, /src/lib, /src/components structure + commit chore(P0): scaffold. — 2026-07-22
 
 ## Phase 1 — Data layer
-- [ ] P1-T1: tickers.ts — all 26 tickers, all fields, realistic values.
-- [ ] P1-T2: pairs.ts — 22 pairs (21 index + 1 noindex), slug/angle/verdict/FAQs.
-- [ ] P1-T3: curation.ts + npm run check:data assertions.
+- [x] P1-T1: tickers.ts — 40 tickers (see D5), all fields, realistic values. — 2026-07-22
+- [x] P1-T2: pairs.ts — 22 pairs (21 index + 1 noindex), slug/angle/verdict/FAQs. — 2026-07-22
+- [x] P1-T3: curation.ts + npm run check:data assertions (passes). — 2026-07-22
 
 ## Phase 2 — Page template
 - [ ] P2-T1: /compare/[slug]/page.tsx + generateStaticParams + notFound.

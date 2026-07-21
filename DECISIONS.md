@@ -23,3 +23,8 @@ Running log of non-obvious engineering decisions. Each entry: **Decision** · Al
 - **Decision:** Ship a native system font stack (`ui-sans-serif, system-ui, …`) defined in CSS tokens; no web font.
 - **Alternatives:** `next/font/google` (Geist/Inter), self-hosted variable font file.
 - **Why:** Two plan constraints: "no external font CDN" (P5-T1) and "no external API calls at build time — everything self-contained" (§2). `next/font/google` fetches from Google's servers at build time, a fragility the demo can't afford. P5-T1 explicitly permits a system stack. Result: zero font bytes over the wire, zero layout shift from font swap, no build-time network dependency.
+
+### D5 — Ticker count is 40, not "26" (plan self-correction)
+- **Decision:** Seed 40 tickers, not the "26" stated in BUILD_PLAN §3.1.
+- **Alternatives:** Force the pair list down to 26 tickers.
+- **Why:** The 21 indexable pairs in §3.2 reference **38 unique tickers** by enumeration (AAPL, MSFT, NVDA, AMD, GOOGL, META, AMZN, WMT, KO, PEP, V, MA, XOM, CVX, JPM, BAC, TSLA, F, JNJ, PFE, DIS, NFLX, INTC, COST, MCD, SBUX, HD, LOW, UNH, CVS, BA, LMT, T, VZ, NKE, LULU, PG, UL), plus 2 for the noindex thin pair = 40. The concrete pair enumeration is the authoritative spec; "26" is a stale count. Building to the pair list is the non-silent correction.
