@@ -29,10 +29,10 @@ Each task requires a verification step before it is ticked.
 - [x] P3-T8: Semantic HTML audit pass (one H1, th scope, main/nav/section, details/summary). — 2026-07-22
 
 ## Phase 4 — Hub, homepage, internal linking
-- [ ] P4-T1: /compare hub page.
-- [ ] P4-T2: Homepage /.
-- [ ] P4-T3: related.ts algorithm.
-- [ ] P4-T4: check:links script.
+- [x] P4-T1: /compare hub page (grouped by sector, BreadcrumbList + CollectionPage JSON-LD). — 2026-07-22
+- [x] P4-T2: Homepage / (honest framing, featured, noindex-demo link). — 2026-07-22
+- [x] P4-T3: related.ts algorithm (thematic + connectivity ring guaranteeing >=4 inbound). — 2026-07-22
+- [x] P4-T4: check:links script (passes, min inbound = 4, noindex isolated). — 2026-07-22
 
 ## Phase 5 — Performance & CWV
 - [ ] P5-T1: Font strategy (next/font, swap, subset).

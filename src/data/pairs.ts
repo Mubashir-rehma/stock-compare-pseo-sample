@@ -621,6 +621,9 @@ const BY_SLUG: Map<string, Pair> = new Map(PAIRS.map((p) => [p.slug, p]));
 /** All pairs intended for indexing (excludes the thin demo pair). */
 export const INDEXABLE_PAIRS: Pair[] = PAIRS.filter((p) => p.index);
 
+/** Pairs surfaced on the homepage. Single source of truth (home + check:links). */
+export const FEATURED_SLUGS = ["aapl-vs-msft", "amd-vs-nvda", "ko-vs-pep", "f-vs-tsla"] as const;
+
 /** Look up a pair by its canonical slug. */
 export function getPair(slug: string): Pair | undefined {
   return BY_SLUG.get(slug);
