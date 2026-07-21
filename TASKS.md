@@ -52,7 +52,7 @@ Each task requires a verification step before it is ticked.
 
 ## QA
 - [x] QA Round 1 (breadth, all lanes). 5 findings fixed; qa-audit 0 open. — 2026-07-22
-- [ ] QA Round 2 (depth + adversarial).
+- [x] QA Round 2 (depth + adversarial). Routing battery + all-page schema + mobile; 1 LOW accepted. — 2026-07-22
 - [ ] QA Round 3 (live deploy + README read-through).
 
 ## Blockers

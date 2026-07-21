@@ -29,5 +29,11 @@ export function proxy(req: NextRequest) {
 
 export const config = {
   // Single-segment compare routes only; leaves the hub and OG image routes alone.
+  // Note: a URL with BOTH a trailing slash AND a non-canonical slug takes two
+  // permanent hops (Next's built-in 308 strips the slash first, then this proxy
+  // 301s to the canonical order). That combination is never produced by an
+  // internal link and both hops are permanent, so it is accepted as-is rather
+  // than disabling Next's global trailing-slash handling (which would risk
+  // duplicate-content on other routes). See QA_LOG R2.
   matcher: "/compare/:slug",
 };

@@ -46,8 +46,33 @@ Passes (verified, no action):
 
 Result: 0 open findings; `npm run check` + `qa-audit` + `lint` + `build` all green.
 
-## Round 2 — depth + adversarial
-(pending)
+## Round 2 — depth + adversarial (2026-07-22)
+
+Regression re-verify: all 5 Round-1 fixes intact; `qa-audit` 0 findings, `check` + `lint` + `build` green.
+
+Adversarial routing (all correct):
+| Input | Result |
+|---|---|
+| `/compare/msft-vs-aapl` | 301 → `/compare/aapl-vs-msft` (1 hop) |
+| `/compare/AAPL-VS-MSFT` | 301 → canonical (1 hop) |
+| `/compare/aapl-vs-aapl` (self) | 404 |
+| `/compare/fake-vs-fake` | 404 |
+| `/compare/aapl-vs-fake` (unknown ticker) | 404 |
+| `/compare/aapl-vs-msft-vs-googl` (3 tickers) | 404 |
+| `/compare/aapl-vs-` (malformed) | 404 |
+| `/compare/msft-vs-aapl` chain-follow | 200, exactly 1 redirect (no chain) |
+
+Findings:
+- `[R2][Lane2] LOW | src/proxy.ts | trailing slash + reversed slug = 2-hop 308→301 | ACCEPTED` — `/compare/msft-vs-aapl/` takes Next's built-in trailing-slash 308 (strip slash) then the proxy 301 (normalize order). Investigated: Next's 308 pre-empts the proxy, and disabling `skipTrailingSlashRedirect` globally would risk duplicate content on other routes. The combination is never produced by an internal link, both hops are permanent, and the destination is the correct canonical. Documented in `proxy.ts`; left as-is.
+
+Schema depth (all 24 pages, via enhanced `qa-audit`):
+- FAQPage `mainEntity` count + text mirrors on-page FAQs exactly on every comparison page.
+- BreadcrumbList positions are sequential from 1 with names present on every page.
+- Exactly one JSON-LD block per page; all parse.
+
+Mobile-only pass: hub (8 sector groups, 21 links) and comparison pages — no page-level horizontal scroll at 375px; table/code isolated in scroll containers.
+
+Result: 0 open HIGH/MEDIUM findings.
 
 ## Round 3 — live deploy
 (pending)

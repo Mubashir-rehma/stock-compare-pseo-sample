@@ -102,6 +102,17 @@ function auditPage(html: string, page: string, expect: {
     }
   }
 
+  // BreadcrumbList positions sequential from 1, names present
+  const bc = (graph as Array<Record<string, unknown>>).find((n) => n["@type"] === "BreadcrumbList");
+  if (page !== "/" && !bc) add("MEDIUM", page, "no BreadcrumbList in JSON-LD");
+  if (bc) {
+    const items = (bc.itemListElement as Array<{ position: number; name: string }>) ?? [];
+    items.forEach((it, i) => {
+      if (it.position !== i + 1) add("MEDIUM", page, `breadcrumb position ${it.position} != ${i + 1}`);
+      if (!it.name) add("MEDIUM", page, `breadcrumb item ${i + 1} has no name`);
+    });
+  }
+
   // forbidden phrases (in visible text)
   const body = stripTags(html).toLowerCase();
   for (const f of FORBIDDEN) if (body.includes(f)) add("HIGH", page, `forbidden phrase: "${f}"`);
